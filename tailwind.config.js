@@ -25,17 +25,23 @@ module.exports = {
     extend: {
       gridTemplateColumns: {
         // Simple 16 column grid
-        "custom-desk": "repeat(12, 1fr)",
+        "custom-laptop": "repeat(12, 1fr)",
         "custom-mobile": "repeat(4, 1fr)",
       },
 
-      width: {
-        laptop: "71rem",
-        tablet: "45rem",
-        mobile: "31.25rem",
+      maxWidth: {
         "laptop-full": "80rem",
         "tablet-full": "48rem",
-        "mobile-full": "22.5rem",
+        "mobile-full": "28rem",
+      },
+
+      width: {
+        "laptop-full": "80rem",
+        "tablet-full": "48rem",
+        "mobile-full": "28rem",
+        laptop: "71rem",
+        tablet: "45rem",
+        mobile: "22.5rem",
       },
     },
   },
