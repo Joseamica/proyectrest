@@ -15,10 +15,13 @@ module.exports = {
       md: { max: "768px" }, // 720 TABLET
       // => @media (max-width: 767px) { ... }
 
-      sm: { max: "450px" }, // 312 MOBILE
+      sm: { max: "500px" }, // 312 MOBILE
       // => @media (max-width: 639px) { ... }
     },
 
+    //20 px margin
+    //20 px
+    //
     extend: {
       gridTemplateColumns: {
         // Simple 16 column grid
@@ -29,7 +32,7 @@ module.exports = {
       width: {
         laptop: "71rem",
         tablet: "45rem",
-        mobile: "28rem",
+        mobile: "31.25rem",
         "laptop-full": "80rem",
         "tablet-full": "48rem",
         "mobile-full": "22.5rem",
