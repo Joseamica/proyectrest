@@ -12,20 +12,20 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App>
-        <Routes>
-          <Route path="/" element={<Table />} />
+      <Routes>
+        <Route path="/" element={<App />}>
           <Route
             path="/menu"
             element={
               <Private>
+                {/* Child del componente <Private/> ------ VISUAL:  <Private>{children}</Private> */}
                 <Menu />
               </Private>
             }
           />
-          {/* <Route path="/menu" element={<Menu />} /> */}
-        </Routes>
-      </App>
+        </Route>
+        {/* <Route path="/menu" element={<Menu />} /> */}
+      </Routes>
     </BrowserRouter>
   </React.StrictMode>
 );

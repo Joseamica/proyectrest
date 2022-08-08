@@ -1,14 +1,17 @@
 import "./App.css";
 import { Grid, RestInfo } from "../components/";
 import { Table } from "../pages/Table/Table";
+import { Outlet } from "react-router-dom";
+import { Header } from "../components/Header/Header";
 
 function App({ children }) {
   return (
     <div className="h-screen">
       <Grid>
-        <div className="col-start-1 col-end-5 text-2xl">Header</div>
-        <div>Info / Men</div>
-        {children}
+        <Header />
+        <Table />
+
+        <Outlet />
       </Grid>
     </div>
   );

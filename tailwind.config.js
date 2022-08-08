@@ -30,6 +30,7 @@ module.exports = {
       },
       colors: {
         mainTextColor: "#262626",
+        redMainColor: "#F54748",
       },
 
       maxWidth: {
