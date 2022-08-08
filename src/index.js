@@ -1,13 +1,32 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './app/App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./app/App";
+import reportWebVitals from "./reportWebVitals";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Menu } from "./pages/Menu/Menu";
+import { Table } from "./pages/Table/Table";
+import { Private } from "./routes/Private";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <App>
+        <Routes>
+          <Route path="/" element={<Table />} />
+          <Route
+            path="/menu"
+            element={
+              <Private>
+                <Menu />
+              </Private>
+            }
+          />
+          {/* <Route path="/menu" element={<Menu />} /> */}
+        </Routes>
+      </App>
+    </BrowserRouter>
   </React.StrictMode>
 );
 

@@ -4,7 +4,9 @@
       "id": 1,
       "title": "json-server",
       "author": "typicode"
-    }
+    },
+    { "id": 2, "title": "jose", "author": "jose" },
+    { "id": 3, "title": "carlos", "author": "carlos" }
   ],
   "comments": [
     {
@@ -15,5 +17,11 @@
   ],
   "profile": {
     "name": "typicode"
+  },
+  "restaurant":{
+    "name": "Madre Cafe",
+    "rating": "4.5",
+    "distance": "2.7 km",
+    "location": "Calle Orizaba 139, Roma Norte"
   }
 }

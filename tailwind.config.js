@@ -28,20 +28,23 @@ module.exports = {
         "custom-laptop": "repeat(12, 1fr)",
         "custom-mobile": "repeat(4, 1fr)",
       },
+      colors: {
+        mainTextColor: "#262626",
+      },
 
       maxWidth: {
         "laptop-full": "80rem",
         "tablet-full": "48rem",
-        "mobile-full": "28rem",
+        "mobile-full": "31.25rem",
       },
 
       width: {
         "laptop-full": "80rem",
         "tablet-full": "48rem",
-        "mobile-full": "28rem",
+        "mobile-full": "31.25rem",
         laptop: "71rem",
         tablet: "45rem",
-        mobile: "22.5rem",
+        mobile: "31.25rem",
       },
     },
   },

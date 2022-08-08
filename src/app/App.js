@@ -1,11 +1,14 @@
 import "./App.css";
-import { Grid } from "../components/";
+import { Grid, RestInfo } from "../components/";
+import { Table } from "../pages/Table/Table";
 
-function App() {
+function App({ children }) {
   return (
-    <div className=" h-screen">
+    <div className="h-screen">
       <Grid>
-        <div className="col-start-1 col-end-4">hola mundo</div>
+        <div className="col-start-1 col-end-5 text-2xl">Header</div>
+        <div>Info / Men</div>
+        {children}
       </Grid>
     </div>
   );
