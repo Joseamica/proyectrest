@@ -3,16 +3,19 @@ import { Grid, RestInfo } from "../components/";
 import { Table } from "../pages/Table/Table";
 import { Outlet } from "react-router-dom";
 import { Header } from "../components/Header/Header";
+import { GlobalProvider } from "../store/Global.context";
 
 function App({ children }) {
   return (
     <div className="h-screen">
-      <Grid>
-        <Header />
-        <Table />
+      <GlobalProvider>
+        <Grid>
+          <Header />
+          <Table />
 
-        <Outlet />
-      </Grid>
+          <Outlet />
+        </Grid>
+      </GlobalProvider>
     </div>
   );
 }

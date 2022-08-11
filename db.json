@@ -1,3 +1,4 @@
+
 {
   "posts": [
     {
@@ -21,7 +22,42 @@
   "restaurant":{
     "name": "Madre Cafe",
     "rating": "4.5",
+    "ratingNumber": "400",
+    "typeOfFood":"International",
     "distance": "2.7 km",
     "location": "Calle Orizaba 139, Roma Norte"
+  },
+
+  "dish": [
+    {
+    "id": 1,
+    "quantity": "1",
+    "image": "https://images.unsplash.com/photo-1550547660-d9450f859349?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1365&q=80",
+    "name": "Hamburguesa",
+    "specs": "Sin Queso",
+    "extraSpecs": "Papas Chicas",
+    "price": "200.00"
+    },
+    { 
+    "id": 2,
+    "quantity": "4",
+    "image": "https://images.unsplash.com/photo-1604259596863-57153177d40b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+    "name": "Freezy Bowl",
+    "specs": "Sin Cebolla",
+    "extraSpecs": "Extra Mango",
+    "price": "920.00"
+  },
+  {
+    "id": 3,
+    "quantity": "2",
+    "image": "https://images.unsplash.com/photo-1589114471223-dec0d8d572c6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+    "name": "Scone Arandano",
+    "specs": "Sin Gluten",
+    "extraSpecs": "",
+    "price": "245.33"
+  }   
+  
+]
+   
   }
-}
+

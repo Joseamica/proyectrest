@@ -17,8 +17,8 @@ export const SelectionButton = () => {
         <button
           className={
             selected === "table"
-              ? "btn-selected w-full p-3 shadow-sm rounded-md"
-              : "w-full p-3 bg-white shadow-sm rounded-md"
+              ? "btn-selected w-full p-3 shadow-md rounded-md"
+              : "w-full p-3 bg-white shadow-md rounded-md"
           }
           onClick={() => handleSelection("table")}
         >
@@ -27,8 +27,8 @@ export const SelectionButton = () => {
         <button
           className={
             selected === "user"
-              ? "btn-selected w-full p-3 shadow-sm rounded-md"
-              : "w-full p-3 bg-white shadow-sm rounded-md"
+              ? "btn-selected w-full p-3 shadow-md rounded-md"
+              : "w-full p-3 bg-white shadow-md rounded-md"
           }
           onClick={() => handleSelection("user")}
         >

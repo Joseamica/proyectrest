@@ -7,7 +7,7 @@ export const MenuButton = () => {
     <div className="">
       <Link to="/menu">
         <button
-          onClick={() => console.log("Hpla")}
+          onClick={() => console.log("Hola")}
           className="py-3 px-4 justify-between flex flex-row w-full items-center bg-white shadow-md rounded-lg text-center"
         >
           <label>View the Menu</label>
