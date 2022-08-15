@@ -4,7 +4,7 @@ import { LoginButton } from "../ui/Button/LoginButton";
 export const Header = () => {
   return (
     <>
-      <div className="flex flex-row justify-between px-2 py-4 col-start-1 col-end-13 rounded-b-md bg-white">
+      <div className="flex flex-row justify-between px-2 py-4 col-start-1 col-end-13 rounded-md bg-white">
         <div className="flex flex-row items-center space-x-1">
           <img
             src={require("../../utils/images/logo.png")}

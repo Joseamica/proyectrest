@@ -1,12 +1,18 @@
 import React from "react";
+import { Grid } from "../../components";
+import { Header } from "../../components/Header/Header";
+import { MenuHeader } from "../../components/Header/MenuHeader";
 
 export const Menu = () => {
   return (
-    <div>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, vel
-      fugiat aliquid accusamus repellendus suscipit nobis, deserunt
-      necessitatibus molestiae rerum iste quos nisi provident distinctio
-      voluptatibus, perspiciatis expedita quasi ipsam.
-    </div>
+    <>
+      <Grid>
+        <MenuHeader />
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi natus ex
+        deserunt nisi dignissimos consequatur eum atque, amet at perferendis
+        nesciunt odio assumenda inventore laboriosam, illum corporis asperiores
+        quam eius.
+      </Grid>
+    </>
   );
 };

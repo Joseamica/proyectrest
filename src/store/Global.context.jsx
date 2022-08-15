@@ -3,9 +3,16 @@ import React, { createContext, useContext } from "react";
 const GlobalContext = createContext();
 
 const GlobalProvider = ({ children }) => {
-  const [state, setState] = React.useState({ msg: "hola" });
+  const [state, setState] = React.useState({
+    amount: 1000,
+    tip: 0,
+    total: 0,
+    payed: 730,
+  });
 
-  const value = { state, setState };
+  const toPay = state.amount - state.payed;
+
+  const value = { state, setState, toPay };
 
   return (
     <GlobalContext.Provider value={value}>{children}</GlobalContext.Provider>
@@ -19,6 +26,7 @@ const useGlobal = () => {
   if (context === undefined) {
     throw new Error("Debes de usar el global provider");
   }
+  // console.log("%c State", "color: green;", context.state);
   return context;
 };
 

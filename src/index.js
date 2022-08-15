@@ -13,17 +13,8 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<App />}>
-          <Route
-            path="/menu"
-            element={
-              <Private>
-                {/* Child del componente <Private/> ------ VISUAL:  <Private>{children}</Private> */}
-                <Menu />
-              </Private>
-            }
-          />
-        </Route>
+        <Route path="/" element={<App />}></Route>
+        <Route path="/menu" element={<Menu />} />
         {/* <Route path="/menu" element={<Menu />} /> */}
       </Routes>
     </BrowserRouter>

@@ -25,7 +25,7 @@ export const RestInfo = () => {
       const response = await fetch("http://localhost:3004/restaurant");
       const data = await response.json();
       setRestaurant(data);
-      setState(data);
+      // setState(data);
     } catch (error) {
       console.log("error" + error);
     }
@@ -35,7 +35,7 @@ export const RestInfo = () => {
     Fetching();
   }, []);
 
-  console.log("%c State", "color: green;", state);
+  // console.log("%c State", "color: green;", state);
 
   return (
     <div className="flex p-2 rounded-xl items-center text-center bg-white space-x-1 overflow-hidden sm:justify-start justify-center shadow-md">

@@ -22,6 +22,9 @@ module.exports = {
     //20 px margin
     //20 px
     //
+    minWidth: {
+      "1/4": "25%",
+    },
     extend: {
       gridTemplateColumns: {
         // Simple 16 column grid
@@ -31,6 +34,7 @@ module.exports = {
       colors: {
         mainTextColor: "#262626",
         redMainColor: "#F54748",
+        slighlyGray: "#D6D6D9",
       },
 
       maxWidth: {
