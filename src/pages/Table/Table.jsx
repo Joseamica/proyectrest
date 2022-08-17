@@ -1,61 +1,67 @@
 import React, { useContext } from "react";
 import { useState, useEffect } from "react";
-import { MenuButton, RestInfo, Bill, Dish } from "../../components";
-import { LayoutPayment } from "../../components/Payment/LayoutPayment";
-import { Component, Modalc } from "../../components/Portals/ModalC";
-import { SplitModal } from "../../components/Portals/Modals/SplitModal";
-import { TipModal } from "../../components/Portals/Modals/TipModal";
-import { Button } from "../../components/ui/Button/Button";
-import { SelectionButton } from "../../components/ui/Button/SelectionButton";
-import { Input } from "../../components/ui/forms/Input";
-import { GlobalProvider, useGlobal } from "../../store/Global.context";
+import {
+  MenuButton,
+  RestInfo,
+  Bill,
+  Dish,
+  SplitModal,
+  Modalc,
+  Button,
+  LayoutPayment,
+  SelectionButton,
+} from "../../components";
+import { useGlobal } from "../../store/Global.context";
 
-//TODO Exportar los componentes en el index.jsx
 export const Table = () => {
-  const [button, setButton] = useState({ bill: false, divide: false });
+  const [showModal, setShowModal] = useState({ bill: false, split: false });
   const [section, setSection] = useState("table");
-
-  //TODO: Modificar el nombre de button y setButton a showModal y setShowModal
-  const { bill, divide } = button;
+  const { state, setState } = useGlobal();
+  const { total } = state;
 
   const handleButton = (parameter) => {
     if (parameter === "pay") {
-      setButton({ ...button, bill: true });
-    } else if (parameter === "divide") {
-      setButton({ ...button, divide: true });
+      setShowModal((prevState) => ({ bill: true }));
+      setTimeout(() => {
+        window.scrollTo({ top: 300, behavior: "smooth" });
+      }, 500);
+    } else if (parameter === "split") {
+      setShowModal((prevState) => ({ split: true }));
     }
+    // handleClickBill(parameter);
   };
 
-  //REVIEW ESTA BIEN ASI??
   useEffect(() => {
-    setTimeout(() => {
-      console.log("Scroll running");
-      //TODO handleClickBill scrollear
-      if (bill) {
-        window.scrollTo({ top: 300, behavior: "smooth" });
-      }
-    }, 1);
-  }, [bill]);
+    setState((prevState) => ({
+      ...prevState,
+      total: prevState.amount + prevState.tip,
+    }));
+  }, []);
 
   return (
     <>
-      {/* REVIEW PREGUNTA AL PROF Porque se tiene que poner aqui para que se extienda? */}
+      {/* C-START: RESTAURANT INFORMATION AND THE BUTTON ! */}
       <section className="col-start-1 col-end-13">
-        {/* RestaurantInfo and Button */}
         <div className="flex flex-col space-y-1 ">
           <RestInfo />
           <MenuButton />
         </div>
       </section>
+      {/* C-START: SelectionButton -> TabButton cambia entre Table y User */}
       <section className="col-start-1 col-end-13 space-y-2 mt-1">
         <h3 className="text-lg font-semibold">Table 77 summary</h3>
         <SelectionButton setSection={setSection} section={section} />
       </section>
+      {/* CONDITIONAL: depende del boton de <SelectionButton/> el cual se encarga de mostrar
+      la informacion dependiendo lo que escoja el usuario */}
       {section === "table" ? (
+        //CONDITIONAL-A
         <>
+          {/* C-START: DISH -> Aqui se controla el TotalBill, LeftToPay, y cuantos platillos llevan agregados */}
           <section className="col-start-1 col-end-13">
             <Dish />
           </section>
+          {/* C-START: Los botones de Pay the bill y split the bill */}
           <section className="col-start-1 col-end-13">
             <Button
               label={"Pay the bill"}
@@ -63,26 +69,40 @@ export const Table = () => {
             />
             <Button
               label={"Split the bill"}
-              handleState={() => handleButton("divide")}
+              handleState={() => handleButton("split")}
             />
           </section>
-          {bill ? (
+          {/* CONDITIONAL: Si el boton pay the bill se pushea, se convierte en true lo cual
+          hace que aparezca el resumen del pago
+          */}
+          {showModal.bill ? (
+            //CONDITIONAL-A
+            //C-START: layout component
             <section className="col-start-1 col-end-13">
               <LayoutPayment />
             </section>
           ) : null}
-          {/* {divide ? <Component modal={divide} setButton={setButton} /> : null} */}
+          {/* {split ? <Component modal={split} setButton={setButton} /> : null} */}
+          {/* C-START: Aqui estan localizados los Modals */}
           <section className="">
             <Modalc
-              onClose={() => setButton(divide)}
-              isOpen={divide}
+              onClose={() =>
+                setShowModal((prevState) => ({ ...prevState, split: false }))
+              }
+              isOpen={showModal.split}
               title="Split"
             >
-              <SplitModal />
+              <SplitModal
+                onClick={() =>
+                  setShowModal((prevState) => ({ ...prevState, split: false }))
+                }
+              />
             </Modalc>
           </section>
         </>
       ) : (
+        //CONDITIONAL-B
+        // TODO Poner todo lo que tiene que llevar el userTab.
         <>
           <section className="col-start-1 col-end-13">
             <Bill />

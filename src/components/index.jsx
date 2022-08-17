@@ -1,6 +1,20 @@
 export { Grid } from "./ui/grid/Grid";
 export { RestInfo } from "./RestInfo/RestInfo";
-export { MenuButton } from "./ui/Button/MenuButton";
 export { LayoutBill } from "./Bill/LayoutBill";
 export { Bill } from "./Bill/Bill";
-export { Dish } from "./Bill/Dish/Dish";
+export { Dish } from "./Dish/Dish";
+export { LayoutDish } from "./Dish/LayoutDish";
+export { Modalc } from "./Portals/ModalC";
+export { Backdrop } from "./Portals/Backdrop";
+export { Button } from "./ui/Button/Button";
+export { ModalButton } from "./ui/Button/ModalButton";
+export { MenuButton } from "./ui/Button/MenuButton";
+export { SelectionButton } from "./ui/Button/SelectionButton";
+
+export { TipModal } from "./Portals/Modals/TipModal";
+export { PromoCodeModal } from "./Portals/Modals/PromoCodeModal";
+export { SplitModal } from "./Portals/Modals/SplitModal";
+export { LayoutPayment } from "./Payment/LayoutPayment";
+export { LayoutTip } from "./Payment/Tip/LayoutTip";
+export { Header } from "./Header/Header";
+export { MenuHeader } from "./Header/MenuHeader";

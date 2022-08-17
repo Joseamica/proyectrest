@@ -1,7 +1,8 @@
 import React from "react";
 import { Button } from "../../ui/Button/Button";
+import { ModalButton } from "../../ui/Button/ModalButton";
 
-export const SplitModal = () => {
+export const SplitModal = ({ onClick }) => {
   return (
     <>
       <div className="py-4 flex flex-row">
@@ -12,7 +13,7 @@ export const SplitModal = () => {
           className="text-2xl w-full ring-2 ring-mainTextColor rounded-lg px-3"
         />
       </div>
-      <Button label={"Confirm"} />
+      <ModalButton label={"Confirm"} onClick={onClick} />
     </>
   );
 };

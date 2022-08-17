@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { useGlobal } from "../../../store/Global.context";
-import { LayoutBill } from "../LayoutBill";
-import { LayoutDish, LayoutFood } from "./LayoutDish";
+import { useGlobal } from "../../store/Global.context";
+import { LayoutDish, LayoutBill } from "../../components";
 
 export const Dish = () => {
   const [dish, setDish] = useState([]);

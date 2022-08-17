@@ -1,7 +1,6 @@
 import React from "react";
-import { LayoutBill } from "..";
-import { useGlobal } from "../../store/Global.context";
-import { Dish } from "./Dish/Dish";
+
+import { Dish } from "../Dish/Dish";
 
 export const Bill = () => {
   return (

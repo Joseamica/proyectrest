@@ -1,8 +1,6 @@
 import React from "react";
-import { useEffect } from "react";
 import { useState } from "react";
 import { useGlobal } from "../../../store/Global.context";
-import { Button } from "../../ui/Button/Button";
 import { ModalButton } from "../../ui/Button/ModalButton";
 
 export const TipModal = (props) => {

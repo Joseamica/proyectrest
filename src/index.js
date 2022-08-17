@@ -7,17 +7,20 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Menu } from "./pages/Menu/Menu";
 import { Table } from "./pages/Table/Table";
 import { Private } from "./routes/Private";
+import { GlobalProvider } from "./store/Global.context";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<App />}></Route>
-        <Route path="/menu" element={<Menu />} />
-        {/* <Route path="/menu" element={<Menu />} /> */}
-      </Routes>
-    </BrowserRouter>
+    <GlobalProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<App />}></Route>
+          <Route path="/menu" element={<Menu />} />
+          {/* <Route path="/menu" element={<Menu />} /> */}
+        </Routes>
+      </BrowserRouter>
+    </GlobalProvider>
   </React.StrictMode>
 );
 

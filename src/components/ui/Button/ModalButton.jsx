@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import { StarIcon, BookOpenIcon, PauseIcon } from "@heroicons/react/outline";
-import { Router, Link } from "react-router-dom";
 
 export const ModalButton = ({ label, className, ...propiedades }) => {
   return (

@@ -1,10 +1,7 @@
 import { PencilIcon, PlusCircleIcon } from "@heroicons/react/outline";
 import React, { useEffect, useState } from "react";
 import { useGlobal } from "../../store/Global.context";
-import { Modalc } from "../Portals/ModalC";
-import { PromoCodeModal } from "../Portals/Modals/PromoCodeModal";
-import { TipModal } from "../Portals/Modals/TipModal";
-import { LayoutTip } from "./Tip/LayoutTip";
+import { LayoutTip, Modalc, PromoCodeModal, TipModal } from "../../components";
 
 export const LayoutPayment = ({ tipState, setTipState }) => {
   // const [amount, setAmount] = useState(0);
@@ -30,11 +27,6 @@ export const LayoutPayment = ({ tipState, setTipState }) => {
     }));
   };
 
-  // useEffect(() => {
-  //   console.log("useeffect");
-  //   setState((current) => ({ ...current, total: current.amount }));
-  // }, []);
-  console.log(state);
   return (
     <div className="space-y-2">
       <div className="flex flex-col bg-white shadow-md rounded-md p-3 space-y-2">

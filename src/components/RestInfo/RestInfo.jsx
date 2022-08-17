@@ -4,7 +4,10 @@ import {
   LocationMarkerIcon,
   CursorClickIcon,
 } from "@heroicons/react/outline";
-import { useGlobal } from "../../store/Global.context";
+import { useLoading } from "../../store/Loading.context";
+import { BlockSkeleton } from "../ui/Skeleton/BlockSkeleton";
+import { Loading } from "../ui/Loading";
+import { useState } from "react";
 
 // TODO
 /**
@@ -18,16 +21,21 @@ import { useGlobal } from "../../store/Global.context";
 
 export const RestInfo = () => {
   const [restaurant, setRestaurant] = React.useState({});
+  // const { loading, setLoading } = useLoading();
+  const [loading, setLoading] = useState(false);
 
   const Fetching = async () => {
     try {
+      setLoading(true);
       const response = await fetch("http://localhost:3004/restaurant");
       const data = await response.json();
       setRestaurant(data);
+
       // setState(data);
     } catch (error) {
       console.log("error" + error);
     }
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -37,40 +45,48 @@ export const RestInfo = () => {
   // console.log("%c State", "color: green;", state);
 
   return (
-    <div className="flex p-2 rounded-xl items-center text-center bg-white space-x-1 overflow-hidden sm:justify-start justify-center shadow-lg">
-      {/* Restaurant name and logo */}
-      <div className="flex flex-col shrink-0">
-        <img
-          className="shrink-0 sm:h-20 sm:w-20  object-cover"
-          src={require("../../utils/images/madrecafe.png")}
-        />
-        {/* <p className="text-sm">{restaurant.name} </p> */}
-      </div>
-      {/* endRestaurant name and logo */}
-      {/* ----INFORMATION---- */}
-      <div className="shrink-0 space-y-1">
-        {/* Rating */}
-        <div className="flex items-center space-x-1">
-          <StarIcon className="h-5 w-5" />
-          <p className="text-sm">
-            {restaurant.rating} ({restaurant.ratingNumber}+ ratings) •{" "}
-            {restaurant.typeOfFood}
-          </p>
+    <>
+      {loading ? (
+        <Loading />
+      ) : (
+        <div className="flex p-2 rounded-xl items-center text-center bg-white space-x-1 overflow-hidden sm:justify-start justify-center shadow-lg">
+          {/* Restaurant name and logo */}
+          <div className="flex flex-col shrink-0">
+            <img
+              className="shrink-0 sm:h-20 sm:w-20  object-cover"
+              src={require("../../utils/images/madrecafe.png")}
+            />
+            {/* <p className="text-sm">{restaurant.name} </p> */}
+          </div>
+          {/* endRestaurant name and logo */}
+          {/* ----INFORMATION---- */}
+          <div className="shrink-0 space-y-1">
+            {/* Rating */}
+            <div className="flex items-center space-x-1">
+              <StarIcon className="h-5 w-5" />
+              <p className="text-sm">
+                {restaurant.rating} ({restaurant.ratingNumber}+ ratings) •{" "}
+                {restaurant.typeOfFood}
+              </p>
+            </div>
+            {/* endRating */}
+            {/* Distance */}
+            <div className="flex items-center space-x-1">
+              <LocationMarkerIcon className="h-5 w-5" />
+              <p className="text-sm">
+                {restaurant.distance} from your location
+              </p>
+            </div>
+            {/* endDistance */}
+            {/* Location */}
+            <div className="flex flex-row space-x-1 bg-purple-100 ">
+              <CursorClickIcon className="h-5 w-5" />
+              <p className="text-sm ">{restaurant.location}</p>
+            </div>
+            {/* endLocation */}
+          </div>
         </div>
-        {/* endRating */}
-        {/* Distance */}
-        <div className="flex items-center space-x-1">
-          <LocationMarkerIcon className="h-5 w-5" />
-          <p className="text-sm">{restaurant.distance} from your location</p>
-        </div>
-        {/* endDistance */}
-        {/* Location */}
-        <div className="flex flex-row space-x-1 bg-purple-100 ">
-          <CursorClickIcon className="h-5 w-5" />
-          <p className="text-sm ">{restaurant.location}</p>
-        </div>
-        {/* endLocation */}
-      </div>
-    </div>
+      )}
+    </>
   );
 };
