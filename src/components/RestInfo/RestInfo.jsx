@@ -18,7 +18,6 @@ import { useGlobal } from "../../store/Global.context";
 
 export const RestInfo = () => {
   const [restaurant, setRestaurant] = React.useState({});
-  const { state, setState } = useGlobal();
 
   const Fetching = async () => {
     try {
@@ -38,7 +37,7 @@ export const RestInfo = () => {
   // console.log("%c State", "color: green;", state);
 
   return (
-    <div className="flex p-2 rounded-xl items-center text-center bg-white space-x-1 overflow-hidden sm:justify-start justify-center shadow-md">
+    <div className="flex p-2 rounded-xl items-center text-center bg-white space-x-1 overflow-hidden sm:justify-start justify-center shadow-lg">
       {/* Restaurant name and logo */}
       <div className="flex flex-col shrink-0">
         <img

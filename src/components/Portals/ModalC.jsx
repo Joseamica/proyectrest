@@ -1,37 +1,74 @@
+import {
+  ArrowDownIcon,
+  ArrowsExpandIcon,
+  ChevronDownIcon,
+} from "@heroicons/react/outline";
+import { ArrowNarrowDownIcon, ArrowSmDownIcon } from "@heroicons/react/solid";
+import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import * as ReactDOM from "react-dom";
+import { Button } from "../ui/Button/Button";
+import { ModalButton } from "../ui/Button/ModalButton";
+import Backdrop from "./Backdrop";
+import React from "react";
 
-const MODAL_STYLES = {
-  borderRadius: 10,
-  position: "fixed",
-  top: "70%",
-  left: 0,
-  right: 0,
-  bottom: 0,
-  backgroundColor: "#FFF",
-  padding: "50px",
-  zIndex: 1000,
-};
-
-const OVERLAY_STYLES = {
-  position: "fixed",
-  left: 0,
-  right: 0,
-  bottom: 0,
-  backgroundColor: "rgba(0,0,0,.7)",
-  zIndex: 1000,
-};
-
-export const Modalc = ({ message, isOpen, onClose, children }) => {
+export const Modalc = ({
+  message,
+  isOpen,
+  onClose,
+  children,
+  title = "title",
+}) => {
+  const variants = {
+    hidden: {
+      y: "100vh",
+      opacity: 0,
+    },
+    visible: {
+      y: "0",
+      opacity: 1,
+      transition: {
+        duration: 0.1,
+        type: "spring",
+        damping: 100,
+        stiffness: 1500,
+      },
+    },
+    exit: {
+      y: "100vh",
+      opacity: 0,
+      transition: {
+        duration: 0.1,
+      },
+    },
+  };
   if (!isOpen) return null;
   return ReactDOM.createPortal(
-    <div style={OVERLAY_STYLES}>
-      <div style={MODAL_STYLES}>
+    // <div className="flex bg-gray-500 bg-opacity-70 absolute top-0 left-0 right-0 bottom-0 items-end ">
+    // <div style={OVERLAY_STYLES}>
+    <React.Fragment>
+      <Backdrop onClick={onClose}></Backdrop>
+      {/* // <Backdrop> */}
+      {/* <div style={MODAL_STYLES}> */}
+      <motion.div
+        variants={variants}
+        initial="hidden"
+        animate="visible"
+        exit={{ opacity: 0, scale: 0 }}
+        className="fixed inset-x-0 bottom-0 top-[80%] bg-white rounded-t-lg p-5 z-40"
+      >
+        {/* header */}
+        <div className="flex flex-row justify-between">
+          <span>{title}</span>
+          <button onClick={onClose}>
+            <ChevronDownIcon className="h-5 w-5" />
+          </button>
+        </div>
+        {/* children */}
         {children}
-        <button onClick={onClose}>Close</button>
-      </div>
-    </div>,
-    document.body
+      </motion.div>
+    </React.Fragment>,
+    document.getElementById("modal-root")
   );
 };
 

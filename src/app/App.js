@@ -6,11 +6,12 @@ import { Header } from "../components/Header/Header";
 import { GlobalProvider } from "../store/Global.context";
 
 function App({ children }) {
+  //TODO useeffect que actualice el total del Context
   return (
     <div className="h-screen">
       <GlobalProvider>
+        <Header />
         <Grid>
-          <Header />
           <Table />
 
           <Outlet />

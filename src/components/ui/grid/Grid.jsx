@@ -1,6 +1,6 @@
 import React from "react";
 
-function Grid({ children, className }) {
+function Grid({ children, className, ignore }) {
   return (
     <div
       className={` 

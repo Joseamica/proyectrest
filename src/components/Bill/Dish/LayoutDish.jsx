@@ -26,7 +26,7 @@ export const LayoutDish = ({
             {specs} {extraSpecs ? <>• {extraSpecs}</> : null}
           </p>
         </div>
-        <p className="text-sm px-2">${price}</p>
+        <p className="text-sm px-2">${price.toLocaleString("en-US")}</p>
       </div>
     </div>
   );

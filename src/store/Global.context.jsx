@@ -26,7 +26,11 @@ const useGlobal = () => {
   if (context === undefined) {
     throw new Error("Debes de usar el global provider");
   }
-  // console.log("%c State", "color: green;", context.state);
+  // console.log("%c Amount", "color: red;", context.state.amount);
+
+  // console.log("%c Tip", "color: green;", context.state.tip);
+  // console.log("%c Total", "color: blue;", context.state.total);
+
   return context;
 };
 

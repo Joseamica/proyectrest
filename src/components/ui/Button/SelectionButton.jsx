@@ -1,24 +1,22 @@
 import React, { useState } from "react";
 
-export const SelectionButton = () => {
-  const [selected, setSelected] = useState("table");
-
+export const SelectionButton = ({ setSection, section }) => {
   const handleSelection = (value) => {
     if (value === "table") {
-      setSelected("table");
+      setSection("table");
     } else if (value === "user") {
-      setSelected("user");
+      setSection("user");
     }
   };
 
   return (
     <>
-      <div className="flex justify-between text-center space-x-1">
+      <div className="flex justify-between text-center space-x-1 bg-white rounded-2xl ring-2 ring-slighlyGray">
         <button
           className={
-            selected === "table"
-              ? "btn-selected w-full p-3 shadow-md rounded-md"
-              : "w-full p-3 bg-white shadow-md rounded-md"
+            section === "table"
+              ? "btn-selected w-full p-3  rounded-2xl"
+              : "w-full p-3  drop-shadow-lg rounded-2xl"
           }
           onClick={() => handleSelection("table")}
         >
@@ -26,9 +24,9 @@ export const SelectionButton = () => {
         </button>
         <button
           className={
-            selected === "user"
-              ? "btn-selected w-full p-3 shadow-md rounded-md"
-              : "w-full p-3 bg-white shadow-md rounded-md"
+            section === "user"
+              ? "btn-selected w-full p-3 rounded-2xl"
+              : "w-full p-3   rounded-full"
           }
           onClick={() => handleSelection("user")}
         >

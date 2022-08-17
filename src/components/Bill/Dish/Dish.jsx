@@ -21,7 +21,7 @@ export const Dish = () => {
 
   return (
     <>
-      <div className="p-2 flex flex-col bg-white rounded-lg divide-solid shadow-md">
+      <div className="p-2 flex flex-col bg-white rounded-2xl divide-solid shadow-md">
         <div className="divide-y">
           <LayoutBill title="Total Bill" billAmount={state.amount} />
           <LayoutBill title="Left to Pay" billAmount={toPay} />

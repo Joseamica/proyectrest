@@ -6,8 +6,8 @@ import { MenuHeader } from "../../components/Header/MenuHeader";
 export const Menu = () => {
   return (
     <>
+      <MenuHeader />
       <Grid>
-        <MenuHeader />
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi natus ex
         deserunt nisi dignissimos consequatur eum atque, amet at perferendis
         nesciunt odio assumenda inventore laboriosam, illum corporis asperiores

@@ -6,7 +6,7 @@ export const MenuHeader = () => {
   const navigate = useNavigate();
   return (
     <>
-      <div className="col-start-1 col-end-13  px-2 py-4 rounded-md bg-white shadow-md">
+      <div className="col-start-1 col-end-13  px-2 py-4  bg-white shadow-md rounded-b-2xl mb-2">
         <div className="flex space-x-2 justify-between ">
           <button onClick={() => navigate(-1)}>
             <ArrowLeftIcon className="h-5 w-5" />
